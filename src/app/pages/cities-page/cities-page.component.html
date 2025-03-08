@@ -1,0 +1,28 @@
+<div class="cities-page">
+  <div class="cities-page__actions">
+    <div class="cities-page__view-buttons">
+      <button
+        class="cities-page__view-button"
+        (click)="view.set('list')"
+        [class.cities-page__view-button--active]="view() === 'list'"
+      >
+        Список
+      </button>
+      <button
+        class="cities-page__view-button"
+        (click)="view.set('grid')"
+        [class.cities-page__view-button--active]="view() === 'grid'"
+      >
+        Плитка
+      </button>
+    </div>
+    <button class="cities-page__create-btn" routerLink="/create_city">
+      Создать
+    </button>
+  </div>
+  @switch (view()) { @case ('list') {
+  <app-city-list [cities]="(cities$ | async) || []"></app-city-list>
+  } @case ('grid') {
+  <app-city-grid [cities]="(cities$ | async) || []"></app-city-grid>
+  } }
+</div>

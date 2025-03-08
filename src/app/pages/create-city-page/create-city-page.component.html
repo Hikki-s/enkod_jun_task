@@ -1,0 +1,62 @@
+<button class="create-city__back-btn" routerLink="/cities">
+  <mat-icon
+    class="create-city__back-arrow-icon"
+    svgIcon="back-arrow"
+  ></mat-icon>
+  Назад
+</button>
+
+<form [formGroup]="cityForm" (ngSubmit)="onSubmit()">
+  <div class="create-city__form-group">
+    <label class="create-city__label" for="name">Название города</label>
+    <input
+      id="name"
+      type="text"
+      class="create-city__input"
+      formControlName="name"
+    />
+    @if ( cityForm.get('name')?.invalid && cityForm.get('name')?.touched) {
+    <div class="create-city__error-message">
+      Обязательное поле (макс. 50 символов)
+    </div>
+    }
+  </div>
+
+  <div class="create-city__form-group">
+    <label class="create-city__label" for="description">Описание города</label>
+    <textarea
+      id="description"
+      class="create-city__textarea"
+      formControlName="description"
+    ></textarea>
+    @if ( cityForm.get('description')?.invalid &&
+    cityForm.get('description')?.touched) {
+    <div class="create-city__error-message">
+      Обязательное поле (макс. 250 символов)
+    </div>
+    }
+  </div>
+
+  <div class="create-city__form-group">
+    <label class="create-city__label" for="imageUrl">Ссылка на картинку</label>
+    <input
+      id="imageUrl"
+      type="url"
+      class="create-city__input"
+      formControlName="imageUrl"
+    />
+    @if ( cityForm.get('imageUrl')?.invalid &&
+    cityForm.get('imageUrl')?.touched) {
+    <div class="create-city__error-message">
+      Введите корректный URL изображения
+    </div>
+    }
+  </div>
+  <button
+    type="submit"
+    class="create-city__create-btn"
+    [disabled]="cityForm.invalid"
+  >
+    Создать
+  </button>
+</form>

@@ -1,0 +1,18 @@
+<div class="city-list">
+  @for (city of cities; track city.id) {
+  <div class="city-list__item">
+    <img class="city-list__image" [src]="city.image" [alt]="city.name" />
+    <div class="city-list__info">
+      <div class="city-list__title-row">
+        <h2 class="city-list__name">{{ city.name }}</h2>
+        <mat-icon
+          class="city-list__star-icon"
+          (click)="toggleFavorite(city)"
+          [svgIcon]="city.favorite ? 'star_dark' : 'star'"
+        ></mat-icon>
+      </div>
+      <p class="city-list__description">{{ city.description }}</p>
+    </div>
+  </div>
+  }
+</div>
