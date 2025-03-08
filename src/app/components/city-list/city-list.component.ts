@@ -3,16 +3,16 @@ import {
   Component,
   inject,
   Input,
-} from '@angular/core';
-import { ICity } from '../../interfaces/city.interfaces';
-import { MatIcon } from '@angular/material/icon';
-import { CityService } from '../../services/city-service.service';
+} from "@angular/core";
+import { ICity } from "../../interfaces/city.interfaces";
+import { MatIcon } from "@angular/material/icon";
+import { CityService } from "../../services/city-service.service";
 
 @Component({
-  selector: 'app-city-list',
+  selector: "app-city-list",
   imports: [MatIcon],
-  templateUrl: './city-list.component.html',
-  styleUrl: './city-list.component.less',
+  templateUrl: "./city-list.component.html",
+  styleUrl: "./city-list.component.less",
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
